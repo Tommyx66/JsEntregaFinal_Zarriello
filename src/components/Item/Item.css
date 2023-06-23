@@ -1,0 +1,32 @@
+.product-card{
+    width: 50vw;
+    border-radius: 10px;
+    padding: 2rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fafafa;
+}
+
+.product-image{
+    width: 30vw;
+    border-radius: 6px;
+    object-fit:contain;
+}
+
+.product-button{
+    border: none;
+    border-radius: 10px;
+    color: #fafafa;
+    font-size: 1.2rem;
+    padding: 0.8rem;
+    margin: 1rem;
+    cursor: pointer;
+    background: linear-gradient(to left, #d65252, #350606);
+    transition: all 0.3s;
+}
+
+.product-button:hover{
+    color: #44a08d;
+}

@@ -1,0 +1,83 @@
+.formulario {
+    max-width: 600px;
+    margin: 0 auto;
+    text-transform: uppercase;
+    color: antiquewhite;
+    font-weight: 500;
+    padding-bottom: 5rem;
+
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+
+    
+}
+
+label {
+   
+    margin-bottom: 0.5rem;
+    margin-right: 1rem;
+}
+
+input,
+textarea {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    
+}
+
+h2 {
+    padding-top: 5rem;
+    text-align: center;
+    text-transform: uppercase;
+    color: antiquewhite;
+
+}
+
+.orderId {
+    display: block;
+    margin: 4rem;
+    padding: 2rem;
+    font-size: 2rem;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    border: 1px solid black;
+    border-radius: 5px;
+
+}
+
+.miBtn{
+    display: flex;
+
+    text-transform: uppercase;
+    background-color: black;
+    color: antiquewhite;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+    font-weight: 700;
+    font-size: 1.8;
+   
+}
+.miBtn a{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.miBtn:hover{
+    background-color: rgba(186, 15, 15, 0.821);
+    transition: 1s;
+    transition-delay: .5;
+color: antiquewhite;
+}
+
+
+

@@ -1,0 +1,54 @@
+.productos-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.producto-card{
+    width: 300px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 1rem;
+    color: antiquewhite;
+    background-color: rgb(42, 27, 27);
+text-align: center;
+}
+
+.producto-card p{
+   font-size: 1rem;
+}
+
+.producto-card h2{
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.producto-card button{
+    background-color: antiquewhite;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+    padding: 00.5rem 1rem;
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+
+.producto-card button:hover{
+    background-color: rgba(186, 15, 15, 0.821);
+    transition: .5s;
+    color: antiquewhite;
+}
+
+.product-image{
+    width: 12rem;
+    height: 25rem;
+    object-fit: cover;
+}
+
+h4{
+    font-size: 1rem;
+}
