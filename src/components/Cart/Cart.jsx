@@ -2,10 +2,12 @@ import { Link } from "react-router-dom"
 import { useContext } from "react"
 import { CarritoContext } from "../../context/CarritoContext"
 import CartItem from "../CartItem/CartItem"
-import ItemListContainer from "../ItemListContainer/ItemListContainer"
+import './Cart.css'
 
 
-const Cart = () => {
+
+
+const Cart = (img) => {
     const { carrito, vaciarCarrito } = useContext(CarritoContext)
 
     const totalCantidad = carrito.reduce((total, producto) => total + producto.cantidad, 0)
@@ -14,19 +16,25 @@ const Cart = () => {
     if (totalCantidad === 0) {
         return (
             <>
-                <h2>No hay productos en el carrito</h2>
-                <Link to='/' className="miBtn"> Seguir comprando </Link>
+                <div className="vacio">
+                    <h2>No hay productos en el carrito</h2>
+                   
+                </div>
+                <Link to='/' className="total-btn"> Seguir comprando </Link>
             </>
         )
     }
     return (
-        <div>
+        <div >
             {carrito.map(producto => <CartItem key={producto.id} {...producto} />)}
-            <img className='product-image' src={carrito[0].item.imagen} alt={carrito[0].item.nombre} />
-            <h3>Cantidad Total: {totalCantidad} </h3>
-            <h3>Total: $ {total} </h3>
-            <button onClick={() => vaciarCarrito()} className="miBtn"> Vaciar carrito </button>
-            <Link to='/checkout' className="miBtn"> Finalizar compra </Link>
+
+            <div className="total-container">
+                <h4>Cantidad Total: {totalCantidad} </h4>
+                <h4>Total: U$D {total} </h4>
+                <button onClick={() => vaciarCarrito()} className="miBtn"> Vaciar carrito </button>
+                <Link to='/checkout' className="cart-btn"> Finalizar compra </Link>
+            </div>
+
         </div>
     )
 }

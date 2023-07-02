@@ -59,9 +59,9 @@ const Checkout = () => {
             
                 {carrito.map(producto => (
                     <div key={producto.item.id}>
-                        <img className='product-image' src={producto.img} alt="{producto.nombre}"></img>
-                        <p> {producto.item.nombre} x {producto.cantidad} </p>
-                        <p>Precio: $ {producto.item.precio} </p>
+                    <img src={producto.img} alt={producto.item.desc}></img>
+                        <p> {producto.item.desc} x {producto.cantidad} </p>
+                        <p>Total: U$D {producto.item.precio} </p>
                         <hr />
                     </div>
                 ))}

@@ -8,11 +8,15 @@
     margin: 3rem;
     max-width: 800px;
     margin: 3rem auto;
+    color: antiquewhite;
+    background-color: black;
+
 }
 
 .contenedorItem h2 {
     font-size: 2rem;
     margin-bottom: 0.5rem;
+    color: antiquewhite;
 }
 
 .contenedorItem h3 {
@@ -34,4 +38,23 @@
 object-fit: cover;
 margin-bottom: 2rem;
     border-radius: 5px;
+}
+
+
+.contenedor-detail{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    color: antiquewhite;
+    background-color: antiquewhite;
+    padding: 1rem;
+}
+
+.contenedor-detail h4{
+    background-color:  black;
+    text-transform: uppercase;
+    padding: 1rem;
+    font-size: 0.9rem;
 }

@@ -1,3 +1,4 @@
+
 .productos-container{
     display: flex;
     flex-wrap: wrap;
@@ -17,6 +18,14 @@ text-align: center;
 
 .producto-card p{
    font-size: 1rem;
+}
+
+h1{
+    font-size: 2.2;
+    text-transform: uppercase;
+    text-align: center;
+    padding-top: 5rem;
+    color: antiquewhite;
 }
 
 .producto-card h2{
@@ -46,7 +55,7 @@ text-align: center;
 .product-image{
     width: 11rem;
     height: 25rem;
-object-fit: contain;
+object-fit: cover;
 }
 
 .product-button{
@@ -66,9 +75,8 @@ object-fit: contain;
 
 .product-button:hover{
     color: antiquewhite;
-    background-color: aqua;
+    background-color:rgba(186, 15, 15, 0.821) ;
 }
-
 
 h4{
     font-size: 1rem;

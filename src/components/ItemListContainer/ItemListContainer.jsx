@@ -45,6 +45,7 @@ const ItemListContainer = () => {
 
   return (
     <div>
+    <h1>Bienvenidos a Sonic Sinnergy</h1>
       <h2>Productos</h2>
       <div className='productos-container'>
         {
