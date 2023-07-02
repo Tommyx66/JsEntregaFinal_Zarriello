@@ -21,11 +21,12 @@ const ItemDetail = ({ id, nombre, precio, img, stock, desc }) => {
     }
     return (
         <div className='contenedorItem'>
-            <h2>Nombre: {nombre} </h2>
+            <h2>{nombre} </h2>
+            <h3>{desc}</h3>
             <h3>Precio: ${precio} </h3>
-            <h3> ID: {id} </h3>
+            
             <p>{desc}</p>
-            <img src={img} alt={nombre} />
+            <img  className='img-product' src={img} alt={nombre} />
             {
             }
 

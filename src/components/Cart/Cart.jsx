@@ -22,7 +22,7 @@ const Cart = () => {
     return (
         <div>
             {carrito.map(producto => <CartItem key={producto.id} {...producto} />)}
-            <img className='product-image' src= {carrito.map(producto => <ItemListContainer key={producto.img} />)} alt="{producto.nombre}"></img>
+            <img className='product-image' src={carrito[0].item.imagen} alt={carrito[0].item.nombre} />
             <h3>Cantidad Total: {totalCantidad} </h3>
             <h3>Total: $ {total} </h3>
             <button onClick={() => vaciarCarrito()} className="miBtn"> Vaciar carrito </button>

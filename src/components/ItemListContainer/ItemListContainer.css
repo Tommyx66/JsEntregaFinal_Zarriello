@@ -44,10 +44,31 @@ text-align: center;
 }
 
 .product-image{
-    width: 12rem;
+    width: 11rem;
     height: 25rem;
-    object-fit: cover;
+object-fit: contain;
 }
+
+.product-button{
+    display: flex;
+    background-color: black;
+    color: antiquewhite;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+    font-weight: 700;
+    font-size: 1.5;
+    list-style: none;
+    text-decoration: none;
+
+}
+
+.product-button:hover{
+    color: antiquewhite;
+    background-color: aqua;
+}
+
 
 h4{
     font-size: 1rem;

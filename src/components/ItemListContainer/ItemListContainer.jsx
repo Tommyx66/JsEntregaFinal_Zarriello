@@ -4,6 +4,8 @@ import { collection, getDocs, where, query, doc, updateDoc } from 'firebase/fire
 import { CarritoContext } from '../../context/CarritoContext'
 import { useContext } from 'react';
 import './ItemListContainer.css'
+import { Link } from 'react-router-dom';
+
 
 const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
@@ -16,13 +18,13 @@ const ItemListContainer = () => {
     getDocs(misProductos)
       .then((respuesta) => {
         setProductos(respuesta.docs.map((doc) => ({
-          id: doc.id, ...doc.data
-            ()
+          id: doc.id, ...doc.data()
         })));
       })
-
-
-  }, [productos])
+      .catch((error) => {
+        console.log("Error al obtener los productos", error);
+      });
+  }, [])
 
 
   const descontarStock = async (producto) => {
@@ -33,9 +35,14 @@ const ItemListContainer = () => {
   }
 
   const addToCartAndDiscountStock = (producto, cantidad) => {
-    agregarProducto(producto, cantidad);
-    descontarStock(producto);
+    try {
+      agregarProducto(producto, cantidad);
+      descontarStock(producto);
+    } catch (error) {
+      console.log("Error al agregar el producto al carrito y descontar el stock", error);
+    }
   }
+
   return (
     <div>
       <h2>Productos</h2>
@@ -48,13 +55,13 @@ const ItemListContainer = () => {
               <img className='product-image' src={producto.img} alt="{producto.nombre}"></img>
               <p> Precio: U$D {producto.precio} </p>
               <p> Stock: {producto.stock} </p>
-              <button onClick={()=> addToCartAndDiscountStock(producto, 1)}> Añadir al Carrito </button>
+              <button onClick={() => addToCartAndDiscountStock(producto, 1)}> Añadir al Carrito </button>
+              <Link to={`/item/${producto.id}`} className='product-button'> Ver Detalles </Link>
+
             </div>
-      ))
-
+          ))
         }
-    </div>
-
+      </div>
     </div>
   )
 }
