@@ -6,7 +6,7 @@ import { CarritoContext } from '../../context/CarritoContext'
 import { useContext } from 'react'
 
 
-const ItemDetail = ({ id, nombre, precio, img, stock, desc, categoria}) => {
+const ItemDetail = ({ id, nombre, precio, img, cantidad, desc}) => {
     const [agregarCantidad, setAgregarCantidad] = useState(0)
 
     const { agregarProducto } = useContext(CarritoContext)
@@ -32,7 +32,7 @@ const ItemDetail = ({ id, nombre, precio, img, stock, desc, categoria}) => {
             <div className='contenedor-detail'>
                 <h4>Precio: U$D {precio} </h4>
                 {
-                    agregarCantidad > 0 ? (<Link to="/cart" className='miBtn'> Terminar compra </Link>) : (<ItemCount inicial={1} stock={stock} funcionAgregar={manejadorCantidad} />)
+                    agregarCantidad > 0 ? (<Link to="/cart" className='miBtn'> Terminar compra </Link>) : (<ItemCount inicial={1} stock={cantidad} funcionAgregar={manejadorCantidad} />)
                 }
 
             </div>

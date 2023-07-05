@@ -3,10 +3,16 @@ import { useState, useContext } from "react"
 import { CarritoContext } from "../../context/CarritoContext"
 import { db } from "../../services/config"
 import { collection, addDoc } from "firebase/firestore"
+import CartItem from "../CartItem/CartItem"
+import Swal from 'sweetalert2'
+
+
+
+
 
 
 const Checkout = () => {
-    const { carrito, vaciarCarrito } = useContext(CarritoContext)
+    const { carrito, vaciarCarrito, total } = useContext(CarritoContext)
     const [nombre, setNombre] = useState("")
     const [apellido, setApellido] = useState("")
     const [telefono, setTelefono] = useState("")
@@ -15,22 +21,26 @@ const Checkout = () => {
     const [error, setError] = useState("")
     const [ordenId, setOrderId] = useState("")
 
+
+
+
+
     const manejadorSubmit = (event) => {
         event.preventDefault()
         if (!nombre || !apellido || !telefono || !email || !emailConfirmacion) {
-            setError('Por favor complete los campos!!')
+            mostrarMensajeError2('Por favor complete los campos!!')
             return
         }
 
         if (email !== emailConfirmacion) {
-            setError("Los emails no coinciden!!")
+            mostrarMensajeError("Los emails no coinciden")
             return
         }
 
         const orden = {
             items: carrito.map(producto => ({
                 id: producto.item.id,
-                img: producto.img,
+                img: producto.item.img,
                 nombre: producto.item.nombre,
                 cantidad: producto.cantidad,
             })),
@@ -45,6 +55,7 @@ const Checkout = () => {
             .then((docRef) => {
                 setOrderId(docRef.id)
                 vaciarCarrito()
+                mostrarMensajeExito(docRef.id)
             })
             .catch((error) => {
                 console.log("Error al crear la orden", error);
@@ -52,19 +63,40 @@ const Checkout = () => {
             })
     }
 
+    const mostrarMensajeExito = (ordenId) => {
+        Swal.fire(
+          '¡Gracias por tu compra!',
+          `Tu número de orden es: ${ordenId}`,
+          'success'
+        )
+      }
+
+      const mostrarMensajeError = (mensaje) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Los emails no coinciden',
+          text: 'Ingresalos nuevamente'
+        })
+      }
+    const mostrarMensajeError2 = (mensaje) => {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Por favor complete los campos!!',
+            text: 'Para finalizar su compra, llene todos los campos'
+          })
+    }
+
+
     return (
         <div>
             <h2>Checkout</h2>
             <form onSubmit={manejadorSubmit} className="formulario">
-            
-                {carrito.map(producto => (
-                    <div key={producto.item.id}>
-                    <img src={producto.img} alt={producto.item.desc}></img>
-                        <p> {producto.item.desc} x {producto.cantidad} </p>
-                        <p>Total: U$D {producto.item.precio} </p>
-                        <hr />
-                    </div>
-                ))}
+
+                {carrito.map(producto => <CartItem key={producto.id} {...producto} />)}
+                <div className="total-container">
+                    <h4>Total: U$D {total} </h4>
+                </div>
+
                 <hr />
 
                 <div className="form-group">
@@ -93,16 +125,15 @@ const Checkout = () => {
                     <input type="email" value={emailConfirmacion} onChange={(e) => setEmailConfirmacion(e.target.value)} />
                 </div>
 
+
+
                 {
                     error && <p style={{ color: "white" }}> {error} </p>
                 }
-                <button type="submit" className='miBtn' > Finalizar orden </button>
+                <button type="submit" className='miBtn' > Finalizar Orden </button>
 
-                {
-                    ordenId && (
-                        <strong> ¡Gracias por tu compra! Tu numero de orden es: {ordenId} </strong>
-                    )
-                }
+               
+
 
             </form>
 

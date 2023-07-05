@@ -7,7 +7,7 @@ import './Cart.css'
 
 
 
-const Cart = (img) => {
+const Cart = () => {
     const { carrito, vaciarCarrito } = useContext(CarritoContext)
 
     const totalCantidad = carrito.reduce((total, producto) => total + producto.cantidad, 0)
