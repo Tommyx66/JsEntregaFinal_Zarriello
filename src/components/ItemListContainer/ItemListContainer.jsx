@@ -4,28 +4,44 @@ import { collection, getDocs, where, query, doc, updateDoc } from 'firebase/fire
 import { CarritoContext } from '../../context/CarritoContext'
 import { useContext } from 'react';
 import './ItemListContainer.css'
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+
 
 
 const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
-
+  const { idCategoria } = useParams();
   const { agregarProducto } = useContext(CarritoContext);
 
+
   useEffect(() => {
-    const misProductos = query(collection(db, "inventario"), where("precio", "<", 3000));
-
-    getDocs(misProductos)
-      .then((respuesta) => {
-        setProductos(respuesta.docs.map((doc) => ({
-          id: doc.id, ...doc.data()
-        })));
-      })
-      .catch((error) => {
+    const obtenerProductos = async () => {
+      try {
+        let productosQuery;
+  
+        if (idCategoria) {
+          productosQuery = query(
+            collection(db, "inventario"),
+            where("categoria", "==", parseInt(idCategoria))
+          );
+        } else {
+          productosQuery = collection(db, "inventario");
+        }
+  
+        const productosSnapshot = await getDocs(productosQuery);
+        const productosData = productosSnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+  
+        setProductos(productosData);
+      } catch (error) {
         console.log("Error al obtener los productos", error);
-      });
-  }, [])
-
+      }
+    };
+  
+    obtenerProductos();
+  }, [idCategoria]);
 
   const descontarStock = async (producto) => {
     const productoRef = doc(db, "inventario", producto.id);
@@ -45,7 +61,7 @@ const ItemListContainer = () => {
 
   return (
     <div>
-    <h1>Bienvenidos a Sonic Sinnergy</h1>
+      <h1>Bienvenidos a Sonic Sinnergy</h1>
       <h2>Productos</h2>
       <div className='productos-container'>
         {
@@ -57,7 +73,7 @@ const ItemListContainer = () => {
               <p> Precio: U$D {producto.precio} </p>
               <p> Stock: {producto.stock} </p>
               <button onClick={() => addToCartAndDiscountStock(producto, 1)}> Añadir al Carrito </button>
-              <Link to={`/item/${producto.id}`} className='product-button'> Ver Detalles </Link>
+              <Link to={`/Item/${producto.id}`} className='product-button'> Ver Detalles </Link>
 
             </div>
           ))
