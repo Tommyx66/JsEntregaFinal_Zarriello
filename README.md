@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# Sonic Sinnergy 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+deploy: https://sonicsinnergy.netlify.app/
 
-## Available Scripts
+Este proyecto es una tienda en línea de instrumentos musicales llamada Sonic Sinnergy. Permite a los usuarios explorar y comprar una variedad de guitarras, bajos y sintetizadores. También incluye características como un carrito de compras y un proceso de pago.
 
-In the project directory, you can run:
+![Gif Navegación Sonic Sinnergy](https://github.com/Tommyx66/JsEntregaFinal_Zarriello/assets/60944948/5937cf85-c18d-4833-90d9-e5a13d5c4d59)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Características
 
-### `npm test`
+### Mostrar productos por categoría: 
+Los usuarios pueden navegar por las categorías de guitarras, bajos y sintetizadores para ver los productos correspondientes.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Detalles del producto: 
+Los usuarios pueden ver los detalles de un producto específico, incluyendo su descripción, imagen, precio y disponibilidad en stock.
 
-### `npm run build`
+### Agregar al carrito: 
+Los usuarios pueden agregar productos al carrito de compras desde la página de detalles del producto o desde la lista de productos.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Actualizar el stock: 
+Cuando un producto se agrega al carrito, se actualiza automáticamente el stock disponible en la base de datos.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Carrito de compras:
+Los usuarios pueden ver los productos agregados al carrito de compras, ajustar las cantidades y proceder al proceso de pago.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Proceso de pago: 
+Los usuarios pueden ingresar la información necesaria y completar el proceso de pago para realizar una compra.
 
-### `npm run eject`
+## Tecnologías utilizadas
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### React: 
+Biblioteca de JavaScript utilizada para construir la interfaz de usuario.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Firebase Firestore: 
+Base de datos en la nube utilizada para almacenar los productos y gestionar el stock.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### React Router: 
+Biblioteca utilizada para el enrutamiento y la navegación entre las diferentes páginas del sitio.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Context API: 
+API de contexto de React utilizada para gestionar el estado global del carrito de compras.
 
-## Learn More
+### CSS: 
+Estilos personalizados para diseñar y dar estilo a los componentes y páginas.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Instalación
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1.Clona este repositorio en tu máquina local.
 
-### Code Splitting
+2.Navega hasta el directorio del proyecto.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+3.Instala las dependencias usando el siguiente comando:
 
-### Analyzing the Bundle Size
+`npm install`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+4.Inicia la aplicación usando el siguiente comando:
 
-### Making a Progressive Web App
+`npm start`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+5.Abre tu navegador y visita http://localhost:3000 para ver la aplicación en funcionamiento.
