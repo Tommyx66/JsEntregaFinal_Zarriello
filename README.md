@@ -58,7 +58,6 @@ Estilos personalizados para diseñar y dar estilo a los componentes y páginas.
 
 `npm install`
 
-`npm install sweetalert2`
 
 
 4.Inicia la aplicación usando el siguiente comando:
