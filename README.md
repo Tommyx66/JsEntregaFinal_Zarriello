@@ -28,6 +28,9 @@ Los usuarios pueden ver los productos agregados al carrito de compras, ajustar l
 ### Proceso de pago: 
 Los usuarios pueden ingresar la información necesaria y completar el proceso de pago para realizar una compra.
 
+## Librerías
+### SweetAlert2 ###
+
 ## Tecnologías utilizadas
 
 ### React: 
@@ -51,9 +54,12 @@ Estilos personalizados para diseñar y dar estilo a los componentes y páginas.
 
 2.Navega hasta el directorio del proyecto.
 
-3.Instala las dependencias usando el siguiente comando:
+3.Instala las dependencias usando los siguientes comandos:
 
 `npm install`
+
+`npm install sweetalert2`
+
 
 4.Inicia la aplicación usando el siguiente comando:
 
